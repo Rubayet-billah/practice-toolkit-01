@@ -1,13 +1,18 @@
 const store = require("./app/store");
 const { counterActions } = require("./redux/features/counter/counterSlice");
+const { getUsers } = require("./redux/features/users/userSlice");
 
+console.log(`initial state ${JSON.stringify(store.getState())}`);
 store.subscribe(() => {
-  console.log(store.getState());
+  console.log(`final state ${JSON.stringify(store.getState())}`);
 });
 
-store.dispatch(counterActions.increment());
-store.dispatch(counterActions.increment());
-store.dispatch(counterActions.increment());
-store.dispatch(counterActions.decrement());
+// store.dispatch(counterActions.increment());
+// store.dispatch(counterActions.increment());
+// store.dispatch(counterActions.increment());
+// store.dispatch(counterActions.increment());
+// store.dispatch(counterActions.decrement());
 
-console.log(store.getState());
+store.dispatch(getUsers());
+
+// console.log(store.getState());
